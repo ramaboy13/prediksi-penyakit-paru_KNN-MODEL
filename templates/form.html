@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediksi Penyakit Paru-Paru</title>
+    <style>
+      /* General body styling */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      /* Title styling */
+      h1 {
+        font-size: 24px;
+        color: #4a4a4a;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        font-size: 20px;
+        color: #4a4a4a;
+        margin-top: 20px;
+      }
+
+      /* Form container styling */
+      form {
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        width: 400px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      label {
+        font-size: 14px;
+        color: #333;
+        font-weight: bold;
+        text-align: left;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      input[type="number"]:focus {
+        outline: none;
+        border-color: #6c63ff;
+      }
+
+      /* Submit button styling */
+      button {
+        padding: 10px 15px;
+        background-color: #6c63ff;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #5a54d6;
+      }
+
+      /* Result display styling */
+      p {
+        margin-top: 20px;
+        padding: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #6c63ff;
+        border-radius: 5px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Prediksi Penyakit Paru-Paru</h1>
+    <form action="/predict" method="POST">
+      <label for="Usia">Usia (0=Muda, 1=Tua):</label>
+      <input type="number" id="Usia" name="Usia" required />
+
+      <label for="Jenis_Kelamin">Jenis Kelamin (0=Wanita, 1=Pria):</label>
+      <input type="number" id="Jenis_Kelamin" name="Jenis_Kelamin" required />
+
+      <label for="Merokok">Merokok (0=Pasif, 1=Aktif):</label>
+      <input type="number" id="Merokok" name="Merokok" required />
+
+      <label for="Aktivitas_Begadang"
+        >Aktivitas Begadang (0=Tidak, 1=Ya):</label
+      >
+      <input
+        type="number"
+        id="Aktivitas_Begadang"
+        name="Aktivitas_Begadang"
+        required
+      />
+
+      <label for="Aktivitas_Olahraga"
+        >Aktivitas Olahraga (0=Jarang, 1=Sering):</label
+      >
+      <input
+        type="number"
+        id="Aktivitas_Olahraga"
+        name="Aktivitas_Olahraga"
+        required
+      />
+
+      <label for="Penyakit_Bawaan">Penyakit Bawaan (0=Tidak, 1=Ada):</label>
+      <input
+        type="number"
+        id="Penyakit_Bawaan"
+        name="Penyakit_Bawaan"
+        required
+      />
+
+      <button type="submit">Prediksi</button>
+    </form>
+
+    <h2>Hasil Prediksi:</h2>
+    <p>{{ prediction }}</p>
+  </body>
+</html>
