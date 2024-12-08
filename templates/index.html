@@ -1,0 +1,240 @@
+{% extends 'base.html' %} {% block title %}BreathSafe - Prediksi Risiko Penyakit
+Paru-Paru{% endblock %} {% block content %}
+
+<!-- Hero Section -->
+<section
+  id="hero"
+  class="bg-gray-100 bg-cover bg-center py-20 px-6"
+  style="background-image: url('../public/img/hero1.jpg')"
+>
+  <div class="py-20">
+    <div class="container mx-auto text-center text-black">
+      <!-- Perubahan dari text-white menjadi text-black -->
+      <h1 class="text-4xl font-bold mb-4 leading-snug">
+        Jaga Kesehatan Paru-paru Anda
+      </h1>
+      <p class="text-lg mb-8">
+        Identifikasi risiko penyakit paru-paru Anda sejak dini dengan alat
+        berbasis sains kami.
+      </p>
+      <a
+        href="/predict"
+        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded shadow"
+      >
+        Mulai Prediksi
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-20 px-6">
+  <div class="container mx-auto text-center md:text-left">
+    <h2 class="text-3xl font-bold mb-8 text-blue-500">Tentang BreathSafe</h2>
+    <p class="text-lg mb-4">
+      BreathSafe adalah platform inovatif yang membantu Anda mengenali risiko
+      penyakit paru-paru lebih awal. Dengan pendekatan berbasis data dan
+      teknologi, kami mendukung Anda untuk menjaga kesehatan paru-paru.
+    </p>
+    <p class="text-lg">
+      Kami percaya bahwa pencegahan adalah langkah terbaik. Gunakan alat kami
+      untuk mendapatkan wawasan berharga tentang kesehatan Anda dan ambil
+      tindakan yang tepat.
+    </p>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="bg-gray-100 py-20 px-6">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold mb-8 text-center text-blue-500">
+      Fitur Kami
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center bg-white shadow rounded-lg p-6">
+        <h3 class="text-xl font-bold mb-4">Prediksi Risiko</h3>
+        <p class="text-lg">
+          Alat kami menggunakan teknologi machine learning untuk memberikan
+          hasil prediksi yang akurat.
+        </p>
+      </div>
+      <div class="text-center bg-white shadow rounded-lg p-6">
+        <h3 class="text-xl font-bold mb-4">Rekomendasi Personal</h3>
+        <p class="text-lg">
+          Dapatkan saran berdasarkan data Anda untuk menjaga kesehatan paru-paru
+          secara optimal.
+        </p>
+      </div>
+      <div class="text-center bg-white shadow rounded-lg p-6">
+        <h3 class="text-xl font-bold mb-4">Dukungan Kesehatan</h3>
+        <p class="text-lg">
+          Kami menyediakan panduan untuk meningkatkan kualitas hidup dan
+          kebiasaan sehat Anda.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="bg-gray-50 py-20 px-6">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold mb-8 text-center text-blue-500">Tim Kami</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="text-center">
+        <img
+          src="../public/img/rama.jpg"
+          alt="Anggota Tim"
+          class="rounded-full mx-auto mb-4"
+        />
+        <h3 class="text-xl font-bold">Dr. Fathur Rahman</h3>
+        <p class="text-gray-600">Ahli Paru-Paru</p>
+      </div>
+      <div class="text-center">
+        <img
+          src="../public/img/rama.jpg"
+          alt="Anggota Tim"
+          class="rounded-full mx-auto mb-4"
+        />
+        <h3 class="text-xl font-bold">Dewi Kartika</h3>
+        <p class="text-gray-600">Data Scientist</p>
+      </div>
+      <div class="text-center">
+        <img
+          src="../public/img/rama.jpg"
+          alt="Anggota Tim"
+          class="rounded-full mx-auto mb-4"
+        />
+        <h3 class="text-xl font-bold">Andi Wibowo</h3>
+        <p class="text-gray-600">Pengembang Web</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-20 px-6">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold mb-8 text-center text-blue-500">
+      Testimoni Pengguna
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white shadow rounded-lg p-6">
+        <p class="text-lg italic">
+          "BreathSafe membantu saya mengenali risiko kesehatan sejak dini.
+          Sangat direkomendasikan!"
+        </p>
+        <p class="font-bold mt-4 text-right">- Ani Setiawan</p>
+      </div>
+      <div class="bg-white shadow rounded-lg p-6">
+        <p class="text-lg italic">
+          "Prediksinya sangat akurat dan saya mendapatkan rekomendasi yang
+          sesuai dengan kondisi saya."
+        </p>
+        <p class="font-bold mt-4 text-right">- Budi Santoso</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners Section -->
+<section id="partners" class="bg-gray-100 py-20 px-6">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold mb-8 text-center text-blue-500">
+      Mitra Kami
+    </h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <img src="../public/img/mercu.png" alt="Partner 1" class="mx-auto" />
+      <img src="../public/img/mercu.png" alt="Partner 2" class="mx-auto" />
+      <img src="../public/img/mercu.png" alt="Partner 3" class="mx-auto" />
+      <img src="../public/img/mercu.png" alt="Partner 4" class="mx-auto" />
+    </div>
+  </div>
+</section>
+
+<section id="faq-contact" class="py-20 px-6">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+    <!-- FAQ Section -->
+    <div>
+      <h2 class="text-3xl font-bold mb-8 text-center text-blue-500">FAQ</h2>
+      <div class="space-y-6 max-w-lg mx-auto">
+        <div>
+          <h3 class="text-xl font-bold">
+            Bagaimana cara kerja prediksi BreathSafe?
+          </h3>
+          <p class="text-lg">
+            Sistem kami menganalisis data yang Anda masukkan menggunakan
+            algoritma machine learning untuk memberikan prediksi risiko penyakit
+            paru-paru.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold">Apakah hasil prediksi 100% akurat?</h3>
+          <p class="text-lg">
+            Hasil prediksi bersifat indikatif dan tidak menggantikan diagnosis
+            dari profesional medis.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold">Apakah data saya aman?</h3>
+          <p class="text-lg">
+            Kami menjaga privasi dan keamanan data Anda sesuai dengan standar
+            keamanan data yang ketat.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div>
+      <h2 class="text-3xl font-bold mb-8 text-center text-blue-500">
+        Hubungi Kami
+      </h2>
+      <form action="/contact" method="POST" class="max-w-lg mx-auto space-y-4">
+        <div>
+          <label for="name" class="block text-gray-700 font-bold mb-2"
+            >Nama</label
+          >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+            required
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-gray-700 font-bold mb-2"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+            required
+          />
+        </div>
+        <div>
+          <label for="message" class="block text-gray-700 font-bold mb-2"
+            >Pesan</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+            required
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded"
+        >
+          Kirim
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

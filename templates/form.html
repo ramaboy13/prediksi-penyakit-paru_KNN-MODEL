@@ -1,142 +1,155 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prediksi Penyakit Paru-Paru</title>
-    <style>
-      /* General body styling */
-      body {
-        font-family: "Arial", sans-serif;
-        background-color: #f4f4f9;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 100vh;
-      }
+{% extends 'base.html' %} {% block title %}Flyby - Prediksi Kesehatan Anda{%
+endblock %} {% block content %}
+<section id="form" class="py-20 px-6">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Form Section -->
+    <div>
+      <h2 class="text-3xl font-bold mb-8">Masukkan Informasi Anda</h2>
+      {% if error %}
+      <p class="text-red-500 font-bold mb-4">{{ error }}</p>
+      {% endif %}
+      <form action="/predict" method="POST" class="max-w-lg">
+        <!-- Usia -->
+        <div class="mb-4">
+          <label for="Usia" class="block text-gray-700 font-bold mb-2"
+            >Usia</label
+          >
+          <input
+            type="number"
+            id="Usia"
+            name="Usia"
+            min="0"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+            placeholder="Masukkan usia Anda (tahun)"
+          />
+        </div>
 
-      /* Title styling */
-      h1 {
-        font-size: 24px;
-        color: #4a4a4a;
-        margin-bottom: 20px;
-      }
+        <!-- Jenis Kelamin -->
+        <div class="mb-4">
+          <label for="Jenis_Kelamin" class="block text-gray-700 font-bold mb-2"
+            >Jenis Kelamin</label
+          >
+          <select
+            id="Jenis_Kelamin"
+            name="Jenis_Kelamin"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+          >
+            <option value="" disabled selected>Pilih jenis kelamin</option>
+            <option value="0">Pria</option>
+            <option value="1">Wanita</option>
+          </select>
+        </div>
 
-      h2 {
-        font-size: 20px;
-        color: #4a4a4a;
-        margin-top: 20px;
-      }
+        <!-- Status Merokok -->
+        <div class="mb-4">
+          <label for="Merokok" class="block text-gray-700 font-bold mb-2"
+            >Status Merokok</label
+          >
+          <select
+            id="Merokok"
+            name="Merokok"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+          >
+            <option value="" disabled selected>Pilih status merokok</option>
+            <option value="1">Aktif</option>
+            <option value="0">Pasif</option>
+          </select>
+        </div>
 
-      /* Form container styling */
-      form {
-        background: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        padding: 30px;
-        width: 400px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
+        <!-- Aktivitas Begadang -->
+        <div class="mb-4">
+          <label
+            for="Aktivitas_Begadang"
+            class="block text-gray-700 font-bold mb-2"
+            >Aktivitas Begadang</label
+          >
+          <select
+            id="Aktivitas_Begadang"
+            name="Aktivitas_Begadang"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+          >
+            <option value="" disabled selected>Pilih aktivitas begadang</option>
+            <option value="0">Jarang</option>
+            <option value="1">Sering</option>
+          </select>
+        </div>
 
-      label {
-        font-size: 14px;
-        color: #333;
-        font-weight: bold;
-        text-align: left;
-      }
+        <!-- Aktivitas Olahraga -->
+        <div class="mb-4">
+          <label
+            for="Aktivitas_Olahraga"
+            class="block text-gray-700 font-bold mb-2"
+            >Aktivitas Olahraga</label
+          >
+          <select
+            id="Aktivitas_Olahraga"
+            name="Aktivitas_Olahraga"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+          >
+            <option value="" disabled selected>Pilih aktivitas olahraga</option>
+            <option value="0">Sering</option>
+            <option value="1">Jarang</option>
+          </select>
+        </div>
 
-      input[type="number"] {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 14px;
-      }
+        <!-- Penyakit Bawaan -->
+        <div class="mb-4">
+          <label
+            for="Penyakit_Bawaan"
+            class="block text-gray-700 font-bold mb-2"
+            >Penyakit Bawaan</label
+          >
+          <select
+            id="Penyakit_Bawaan"
+            name="Penyakit_Bawaan"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+          >
+            <option value="" disabled selected>Pilih Penyakit bawaan</option>
+            <option value="1">Tidak Ada</option>
+            <option value="0">Ada</option>
+          </select>
+        </div>
 
-      input[type="number"]:focus {
-        outline: none;
-        border-color: #6c63ff;
-      }
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded"
+        >
+          Prediksi
+        </button>
+      </form>
+    </div>
 
-      /* Submit button styling */
-      button {
-        padding: 10px 15px;
-        background-color: #6c63ff;
-        border: none;
-        border-radius: 5px;
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-
-      button:hover {
-        background-color: #5a54d6;
-      }
-
-      /* Result display styling */
-      p {
-        margin-top: 20px;
-        padding: 10px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #fff;
-        background-color: #6c63ff;
-        border-radius: 5px;
-        display: inline-block;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Prediksi Penyakit Paru-Paru</h1>
-    <form action="/predict" method="POST">
-      <label for="Usia">Usia (0=Muda, 1=Tua):</label>
-      <input type="number" id="Usia" name="Usia" required />
-
-      <label for="Jenis_Kelamin">Jenis Kelamin (0=Wanita, 1=Pria):</label>
-      <input type="number" id="Jenis_Kelamin" name="Jenis_Kelamin" required />
-
-      <label for="Merokok">Merokok (0=Pasif, 1=Aktif):</label>
-      <input type="number" id="Merokok" name="Merokok" required />
-
-      <label for="Aktivitas_Begadang"
-        >Aktivitas Begadang (0=Tidak, 1=Ya):</label
-      >
-      <input
-        type="number"
-        id="Aktivitas_Begadang"
-        name="Aktivitas_Begadang"
-        required
-      />
-
-      <label for="Aktivitas_Olahraga"
-        >Aktivitas Olahraga (0=Jarang, 1=Sering):</label
-      >
-      <input
-        type="number"
-        id="Aktivitas_Olahraga"
-        name="Aktivitas_Olahraga"
-        required
-      />
-
-      <label for="Penyakit_Bawaan">Penyakit Bawaan (0=Tidak, 1=Ada):</label>
-      <input
-        type="number"
-        id="Penyakit_Bawaan"
-        name="Penyakit_Bawaan"
-        required
-      />
-
-      <button type="submit">Prediksi</button>
-    </form>
-
-    <h2>Hasil Prediksi:</h2>
-    <p>{{ prediction }}</p>
-  </body>
-</html>
+    <!-- Educational Section -->
+    <div>
+      <h3 class="text-2xl font-bold mb-4">
+        Pentingnya Menjaga Kesehatan Paru-Paru
+      </h3>
+      <ul class="list-disc list-inside text-lg">
+        <li>
+          Paru-paru yang sehat membantu tubuh mendapatkan oksigen yang cukup.
+        </li>
+        <li>
+          Menghindari rokok dan polusi dapat mengurangi risiko penyakit
+          paru-paru.
+        </li>
+        <li>
+          Olahraga teratur membantu meningkatkan kapasitas paru-paru Anda.
+        </li>
+      </ul>
+      <div class="mt-8">
+        <img
+          src="https://via.placeholder.com/500"
+          alt="Edukasi Paru-Paru"
+          class="rounded shadow"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

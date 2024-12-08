@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}BreathSafe - Prediksi Risiko Penyakit Paru-Paru{%
+      endblock %}
+    </title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <header class="bg-blue-500 text-white">
+      <div
+        class="container mx-auto flex justify-between items-center py-4 px-6"
+        x-data="{ open: false }"
+      >
+        <a href="/" class="text-2xl font-bold">BreathSafe</a>
+
+        <!-- Hamburger Button -->
+        <button
+          @click="open = !open"
+          class="md:hidden text-white focus:outline-none z-50"
+        >
+          <svg
+            x-show="!open"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+
+          <svg
+            x-show="open"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- Navigation Links -->
+        <nav
+          x-show="open || window.innerWidth >= 768"
+          x-transition
+          @click.outside="open = false"
+          class="fixed inset-0 bg-blue-500 md:bg-transparent z-40 md:z-0 md:relative md:block flex flex-col md:flex-row items-center justify-center md:justify-end space-y-6 md:space-y-0 md:space-x-6"
+        >
+          <a
+            href="/"
+            @click="open = false"
+            class="hover:text-gray-300 text-xl md:text-base"
+            >Beranda</a
+          >
+          <a
+            href="#about"
+            @click="open = false"
+            class="hover:text-gray-300 text-xl md:text-base"
+            >Tentang Kami</a
+          >
+          <a
+            href="#features"
+            @click="open = false"
+            class="hover:text-gray-300 text-xl md:text-base"
+            >Fitur</a
+          >
+          <a
+            href="/predict"
+            @click="open = false"
+            class="hover:text-gray-300 text-xl md:text-base"
+            >Prediksi</a
+          >
+          <a
+            href="#faq"
+            @click="open = false"
+            class="hover:text-gray-300 text-xl md:text-base"
+            >FAQ</a
+          >
+          <a
+            href="#contact"
+            @click="open = false"
+            class="hover:text-gray-300 text-xl md:text-base"
+            >Kontak</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-grow">{% block content %}{% endblock %}</main>
+
+    <footer class="bg-blue-500 py-4 text-white text-center">
+      <p>&copy; 2024 BreathSafe. Semua hak dilindungi.</p>
+    </footer>
+  </body>
+</html>
