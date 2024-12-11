@@ -1,0 +1,8 @@
+# Abaikan semua file di dalam folder public/img
+public/img/*
+
+# Jangan abaikan folder public/img
+!public/img/
+
+# (Opsional) Jangan abaikan file README.md (jika digunakan untuk mendokumentasikan folder)
+!public/img/README.md

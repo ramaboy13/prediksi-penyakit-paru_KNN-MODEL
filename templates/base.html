@@ -19,6 +19,12 @@
       html {
         scroll-behavior: smooth;
       }
+      /* Sticky Navbar */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50; /* memastikan navbar tetap berada di atas konten */
+      }
     </style>
   </head>
   <body class="min-h-screen flex flex-col">
@@ -100,13 +106,7 @@
             >Prediksi</a
           >
           <a
-            href="#faq"
-            @click="open = false"
-            class="hover:text-gray-300 text-xl md:text-base"
-            >FAQ</a
-          >
-          <a
-            href="#contact"
+            href="#faq-contact"
             @click="open = false"
             class="hover:text-gray-300 text-xl md:text-base"
             >Kontak</a
