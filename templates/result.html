@@ -8,9 +8,21 @@ endblock %} {% block content %}
       Hasil Prediksi Kesehatan Anda
     </h2>
 
+    <!-- Disclaimer -->
+    <div
+      class="max-w-xl mx-auto bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-6"
+    >
+      <p class="text-yellow-700 font-medium">
+        ⚠️ Perhatian: Prediksi ini bukan diagnosis medis profesional. Hasil ini
+        hanya berupa estimasi berdasarkan data yang Anda masukkan. Untuk
+        pemeriksaan kesehatan yang akurat, selalu konsultasikan dengan tenaga
+        medis profesional.
+      </p>
+    </div>
+
     <!-- Hasil Prediksi -->
-    <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6">
-      <p class="text-lg md:text-xl mb-8 text-gray-700">{{ prediction }}</p>
+    <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6 mb-8">
+      <p class="text-lg md:text-xl mb-6 text-gray-700">{{ prediction }}</p>
       <a
         href="/predict"
         class="block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded text-center"
@@ -18,31 +30,49 @@ endblock %} {% block content %}
         Coba Lagi
       </a>
     </div>
-  </div>
 
-  <!-- Rekomendasi -->
-  <div class="mt-12 px-4">
-    <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center">
-      Rekomendasi untuk Kesehatan Paru-Paru
-    </h3>
-    <ul
-      class="list-disc list-inside text-lg md:text-xl text-gray-700 max-w-2xl mx-auto space-y-4"
-    >
-      <li>Hindari rokok dan lingkungan yang penuh asap.</li>
-      <li>
-        Berolahraga secara teratur untuk meningkatkan kesehatan paru-paru.
-      </li>
-      <li>
-        Perbanyak konsumsi makanan yang kaya antioksidan seperti buah dan
-        sayuran.
-      </li>
-    </ul>
-    <div class="mt-8">
-      <img
-        src="https://via.placeholder.com/600x300"
-        alt="Rekomendasi"
-        class="rounded shadow mx-auto w-full max-w-lg"
-      />
+    <!-- Rekomendasi -->
+    <div class="mt-12 px-4">
+      <h3 class="text-2xl md:text-3xl font-bold mb-6 text-center">
+        Rekomendasi Kesehatan Khusus Untuk Anda
+      </h3>
+
+      <!-- Rekomendasi -->
+      <div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6">
+        <h4 class="text-xl font-semibold mb-4 text-blue-600">
+          Rekomendasi Khusus:
+        </h4>
+        <ul class="list-disc list-inside text-lg text-gray-700 space-y-3">
+          {% for recommendation in recommendations %}
+          <li>{{ recommendation }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Makanan Sehat -->
+      <div class="mt-8 max-w-2xl mx-auto bg-green-50 rounded-lg p-6">
+        <h4 class="text-xl font-semibold mb-4 text-green-700">
+          Rekomendasi Makanan Sehat:
+        </h4>
+        <ul class="list-disc list-inside text-lg text-gray-700 space-y-3">
+          {% for food in healthy_foods %}
+          <li>{{ food }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Konsultasi Medis -->
+    <div class="mt-8 text-center">
+      <a
+        href="https://www.halodoc.com/tanya-dokter"
+        class="bg-red-400 hover:bg-red-300 text-red font-bold py-3 px-6 rounded-lg inline-block"
+      >
+        📞 Konsultasi Dokter Sekarang
+      </a>
+      <p class="mt-4 text-gray-600 italic">
+        Kesehatan Anda adalah prioritas utama!
+      </p>
     </div>
   </div>
 </section>

@@ -7,6 +7,8 @@
       {% block title %}BreathSafe - Prediksi Risiko Penyakit Paru-Paru{%
       endblock %}
     </title>
+    <!-- Add favicon/logo link -->
+    <link rel="icon" type="image/png" href="../public/img/logo.png" />
     <script
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
       defer
@@ -34,7 +36,9 @@
         class="container mx-auto flex justify-between items-center py-4 px-6"
         x-data="{ open: false }"
       >
-        <a href="/" class="text-2xl font-bold">BreathSafe</a>
+        <a href="/" class="flex items-center">
+          <span class="text-2xl font-bold">BreathSafe</span>
+        </a>
 
         <!-- Hamburger Button -->
         <button
